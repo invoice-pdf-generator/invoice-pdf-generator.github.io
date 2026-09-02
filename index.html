@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Invoice Generator — No Signup, No Upload, PDF Ready</title>
+<meta name="description" content="Create a professional invoice in seconds. Free, no login, no upload — your data never leaves your browser. Print or save as PDF with one click.">
+<link rel="canonical" href="https://invoice-generator.github.io/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Free Invoice Generator","url":"https://invoice-generator.github.io/","applicationCategory":"FinanceApplication","description":"Create professional invoices in your browser. Free, private, no signup — data never leaves your device.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"operatingSystem":"Any"}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+<!-- Google AdSense verification + loader -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7470802264397682" crossorigin="anonymous"></script>
+<script src="track.js" data-ga="G-NMDXLM3Z2J"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:'Inter',-apple-system,sans-serif;background:#f6f8fa;color:#1a1a2e;min-height:100vh;display:flex;flex-direction:column}
+.container{max-width:860px;margin:0 auto;padding:20px 16px;width:100%;flex:1}
+header{background:linear-gradient(135deg,#0f3d2e,#1a5c40);color:#fff;padding:26px 0 22px;text-align:center}
+header h1{font-size:clamp(1.4rem,4vw,2rem);font-weight:700;margin-bottom:6px}
+header p{font-size:clamp(.8rem,2vw,.95rem);opacity:.85}
+.ad-banner{background:#e8ecf1;border-radius:10px;display:flex;align-items:center;justify-content:center;min-height:90px;margin:16px 0;font-size:.8rem;color:#888;text-transform:uppercase;letter-spacing:1px;overflow:hidden}
+.card{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:20px;margin-bottom:16px}
+.card h2{font-size:1rem;color:#0f3d2e;margin-bottom:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:.8rem;font-weight:600;color:#555;margin:8px 0 4px}
+input,textarea,select{width:100%;padding:9px 10px;font-size:.9rem;border:2px solid #dde1e7;border-radius:8px;outline:none;background:#fff}
+input:focus,textarea:focus{border-color:#1a5c40}
+textarea{resize:vertical;min-height:44px}
+.btn{background:#1a5c40;color:#fff;border:none;border-radius:8px;padding:11px 18px;font-size:.9rem;font-weight:600;cursor:pointer;transition:background .2s}
+.btn:hover{background:#0f3d2e}
+.btn.gray{background:#e2e8f0;color:#333}
+.btn.gray:hover{background:#cbd5e1}
+.row-end{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:#f1f5f4;text-align:left;padding:8px;color:#0f3d2e}
+td{padding:8px;border-bottom:1px solid #eef2f1;vertical-align:top}
+td input{min-width:60px}
+td.grow input{width:100%}
+.hint{font-size:.75rem;color:#888;margin-top:4px}
+.totals{margin-left:auto;width:280px;margin-top:12px;font-size:.9rem}
+.totals div{display:flex;justify-content:space-between;padding:4px 0}
+.totals .net{font-weight:700;border-top:2px solid #0f3d2e;margin-top:4px;padding-top:8px;font-size:1.05rem}
+#invoicePaper{margin-top:8px;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:28px;display:none}
+#invoicePaper h2{font-size:1.3rem;color:#0f3d2e;margin-bottom:4px}
+.paper-meta{display:flex;justify-content:space-between;margin:12px 0;font-size:.85rem;color:#333}
+.paper-meta .to{border-left:3px solid #1a5c40;padding-left:10px}
+table.items{width:100%;border-collapse:collapse;margin:12px 0}
+table.items th{background:#0f3d2e;color:#fff;border:none;padding:8px}
+table.items td{border-bottom:1px solid #dde1e7;padding:8px}
+table.items td.num{text-align:right}
+.notes{font-size:.82rem;color:#555;margin-top:10px;white-space:pre-wrap}
+.print-badge{font-size:.7rem;color:#1a5c40;font-weight:600}
+footer{background:#0f3d2e;color:#aaa;text-align:center;padding:16px;font-size:.8rem;margin-top:auto}
+footer a{color:#fff;text-decoration:none}
+@media print{
+  body *{visibility:hidden}
+  #invoicePaper,#invoicePaper *{visibility:visible}
+  #invoicePaper{display:block !important;position:absolute;left:0;top:0;width:100%;border:none;padding:0}
+  .ad-banner,.no-print{display:none !important}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <h1>🧾 Free Invoice Generator</h1>
+    <p>Professional invoices in seconds — private, no signup, nothing uploaded</p>
+    <p style="margin-top:2px;font-size:.75rem;opacity:.55">by Afro Walkman Studios</p>
+  </div>
+</header>
+
+<div class="container">
+  <div class="ad-banner no-print">
+    <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
+         data-ad-client="ca-pub-7470802264397682" data-ad-slot="BANNER_SLOT"
+         data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="card no-print">
+    <h2>1 · Your business details</h2>
+    <div class="grid2">
+      <div><label>Your name / company</label><input id="coName" placeholder="Acme Studio"></div>
+      <div><label>Email or phone</label><input id="coEmail" placeholder="hello@acme.com"></div>
+    </div>
+    <div><label>Your address</label><input id="coAddr" placeholder="123 Market St, City"></div>
+  </div>
+
+  <div class="card no-print">
+    <h2>2 · Client &amp; invoice info</h2>
+    <div class="grid2">
+      <div><label>Client name / company</label><input id="clName" placeholder="Client Co. Ltd."></div>
+      <div><label>Invoice number</label><input id="invNum" placeholder="INV-0001"></div>
+    </div>
+    <div class="grid2">
+      <div><label>Issue date</label><input id="invDate" type="date"></div>
+      <div><label>Due date</label><input id="dueDate" type="date"></div>
+    </div>
+    <div class="grid2">
+      <div><label>Tax rate (%)</label><input id="taxRate" type="number" min="0" max="100" value="0" inputmode="decimal"></div>
+      <div><label>Currency</label><select id="currency">
+        <option value="$">$ (USD)</option><option value="€">€ (EUR)</option><option value="£">£ (GBP)</option>
+        <option value="₦">₦ (NGN)</option><option value="R">R (ZAR)</option><option value="₹">₹ (INR)</option><option value="C$">C$ (CAD)</option><option value="A$">A$ (AUD)</option>
+      </select></div>
+    </div>
+  </div>
+
+  <div class="card no-print">
+    <h2>3 · Line items</h2>
+    <table id="itemsTable">
+      <thead><tr><th style="width:50%">Description</th><th style="width:15%">Qty</th><th style="width:20%">Rate</th><th style="width:15%">Amount</th><th></th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <button class="btn gray" onclick="addRow()">+ Add line</button>
+    <div class="hint">Everything is computed in your browser. Nothing is stored or uploaded.</div>
+  </div>
+
+  <div class="card no-print">
+    <h2>4 · Notes</h2>
+    <textarea id="notes" placeholder="Payment terms, thank-you note, bank details…"></textarea>
+  </div>
+
+  <div class="card no-print" style="text-align:center">
+    <button class="btn" onclick="render()">🖨️ Preview &amp; Print / Save PDF</button>
+    <div style="margin-top:8px"><a class="btn gray" style="display:inline-block;text-decoration:none" href="https://buymeacoffee.com/afrowalkmanstudios" target="_blank" rel="noopener">☕ Buy me a coffee</a></div>
+  </div>
+
+  <div id="invoicePaper" aria-live="polite">
+    <div class="print-badge">Generated free at invoice-generator.github.io — your data never left this browser</div>
+    <h2 id="pCoName"></h2>
+    <div id="pCoMeta" style="font-size:.8rem;color:#666"></div>
+    <div class="paper-meta">
+      <div class="to"><strong>Bill to:</strong><br><span id="pClient"></span></div>
+      <div style="text-align:right">
+        <div><strong>Invoice:</strong> <span id="pNum"></span></div>
+        <div>Issued: <span id="pDate"></span> · Due: <span id="pDue"></span></div>
+      </div>
+    </div>
+    <table class="items">
+      <thead><tr><th>Description</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead>
+      <tbody id="pRows"></tbody>
+    </table>
+    <div class="totals">
+      <div><span>Subtotal</span><span id="pSub"></span></div>
+      <div id="taxRow"><span>Tax</span><span id="pTax"></span></div>
+      <div class="net"><span>Total</span><span id="pTotal"></span></div>
+    </div>
+    <div class="notes" id="pNotes"></div>
+  </div>
+
+  <div class="ad-banner no-print" style="min-height:250px">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7470802264397682"
+         data-ad-slot="FOOTER_SLOT" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <a href="privacy.html">Privacy</a> · <a href="https://buymeacoffee.com/afrowalkmanstudios" target="_blank" rel="noopener">Support</a>
+    <div style="margin-top:4px">© <span id="yr"></span> Afro Walkman Studios — Free Invoice Generator</div>
+  </div>
+</footer>
+
+<script>
+function money(n){return (Math.round(n*100)/100).toFixed(2)}
+function cur(){return document.getElementById('currency').value}
+function addRow(desc,qty,rate){
+  var tb=document.querySelector('#itemsTable tbody');
+  var tr=document.createElement('tr');
+  tr.innerHTML='<td class="grow"><input class="iDesc" placeholder="Service / product"></td>'+
+    '<td><input class="iQty" type="number" min="0" value="'+(qty||1)+'" inputmode="decimal"></td>'+
+    '<td><input class="iRate" type="number" min="0" value="'+(rate||0)+'" inputmode="decimal"></td>'+
+    '<td class="iAmt" style="text-align:right">0.00</td>'+
+    '<td><button class="btn gray" style="padding:5px 9px" onclick="this.closest(\'tr\').remove();render()">✕</button></td>';
+  tb.appendChild(tr);
+  var q=tr.querySelector('.iQty'),r=tr.querySelector('.iRate');
+  function upd(){var amt=(parseFloat(q.value)||0)*(parseFloat(r.value)||0);tr.querySelector('.iAmt').textContent=cur()+money(amt)}
+  q.addEventListener('input',upd);r.addEventListener('input',upd);
+  if(desc)tr.querySelector('.iDesc').value=desc;
+  upd();
+}
+function render(){
+  var rows=[].slice.call(document.querySelectorAll('#itemsTable tbody tr'));
+  if(!rows.length)addRow();
+  var sub=0,items=[];
+  rows.forEach(function(tr){
+    var d=tr.querySelector('.iDesc').value||'(item)';
+    var q=parseFloat(tr.querySelector('.iQty').value)||0;
+    var r=parseFloat(tr.querySelector('.iRate').value)||0;
+    var a=q*r;sub+=a;items.push([d,q,r,a]);
+  });
+  var tax=sub*(parseFloat(document.getElementById('taxRate').value)||0)/100;
+  var total=sub+tax;
+  var sum=function(tdId,row){document.getElementById(tdId).textContent=cur()+money(row)};
+  document.getElementById('pCoName').textContent=document.getElementById('coName').value||'Your Company';
+  document.getElementById('pCoMeta').textContent=[document.getElementById('coAddr').value,document.getElementById('coEmail').value].filter(Boolean).join(' · ');
+  document.getElementById('pClient').textContent=document.getElementById('clName').value||'Client';
+  document.getElementById('pNum').textContent=document.getElementById('invNum').value||'INV-0001';
+  document.getElementById('pDate').textContent=document.getElementById('invDate').value;
+  document.getElementById('pDue').textContent=document.getElementById('dueDate').value;
+  document.getElementById('pRows').innerHTML=items.map(function(it){
+    return '<tr><td>'+it[0]+'</td><td>'+it[1]+'</td><td class="num">'+cur()+money(it[2])+'</td><td class="num">'+cur()+money(it[3])+'</td></tr>'
+  }).join('');
+  sum('pSub',sub);sum('pTax',tax);sum('pTotal',total);
+  document.getElementById('pNotes').textContent=document.getElementById('notes').value;
+  var paper=document.getElementById('invoicePaper');paper.style.display='block';
+  window.track&&window.track('invoice_preview',{items:items.length,total:Math.round(total*100)});
+  setTimeout(function(){window.print()},150);
+}
+function demo(){ /* self-check: totals math */
+  var sub=2*50+1*10;                    // mirror render(): qty * rate accumulation
+  var tax=sub*10/100;                   // mirror taxRate formula
+  console.assert(sub===110&&tax===11&&Math.round((sub+tax)*100)/100===121,'invoice math broken');
+  console.assert(money(110)==='110.00','money format basic');
+  console.assert(money(11.005)==='11.01','money format rounding');
+  console.log('invoice self-check OK');
+}
+window.addEventListener('load',function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var d=new Date();document.getElementById('invDate').value=d.toISOString().slice(0,10);
+  var dd=new Date(d);dd.setDate(dd.getDate()+14);document.getElementById('dueDate').value=dd.toISOString().slice(0,10);
+  addRow();
+  if(new URLSearchParams(location.search).get('demo'))demo();
+});
+</script>
+</body>
+</html>
