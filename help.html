@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Generator Help — how it works, currencies, PDF saving</title>
+<meta name="description" content="Step-by-step help for the free Invoice Generator: how to fill in business and client details, add line items, choose currencies and tax rates, and save an invoice as PDF from your browser.">
+<link rel="canonical" href="https://invoice-pdf-generator.github.io/help.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{font-family:Inter,sans-serif;background:#f6f8fa;color:#1a1a2e;margin:0;line-height:1.7}
+.container{max-width:720px;margin:0 auto;padding:30px 20px}
+h1{font-size:1.5rem;color:#35286b}
+h2{font-size:1.15rem;margin-top:28px;padding-top:14px;border-top:1px solid #e4e8f5;color:#35286b}
+a{color:#4a6cf7}
+footer{background:#1a1a2e;color:#aaa;text-align:center;padding:20px;font-size:.8rem;margin-top:20px}
+footer a{color:#4a6cf7}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.nav a{background:#eef1ff;color:#4a6cf7;border-radius:14px;padding:5px 12px;font-size:.85rem;text-decoration:none;font-weight:600}
+.tip{background:#f0f7ff;border-left:4px solid #4a6cf7;padding:10px 14px;border-radius:0 8px 8px 0;font-size:.9rem;margin:14px 0}
+code{background:#eef1ff;border-radius:4px;padding:1px 5px;font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🧾 Invoice Generator — help &amp; how it works</h1>
+<p>A simple four-step invoice: your details, the client, the line items, done. Everything stays in your browser — nothing is sent to any server.</p>
+
+<div class="nav">
+<a href="#steps">The 4 steps</a>
+<a href="#currency">Currencies &amp; tax</a>
+<a href="#print">Save as PDF</a>
+<a href="#trouble">Troubleshooting</a>
+</div>
+
+<h2 id="steps">The four steps</h2>
+<ol>
+<li><strong>Your business details</strong> — name/company, address, email. Saved in your browser for next time.</li>
+<li><strong>Client &amp; invoice info</strong> — client name, invoice number and issue date. Use any numbering style you like (<code>INV-001</code>, <code>2026-004</code>, …).</li>
+<li><strong>Line items</strong> — description, quantity, unit price. The total, tax and grand total update live as you type.</li>
+<li><strong>Notes</strong> — payment terms, bank details or a thank-you message shown below the table on the invoice.</li>
+</ol>
+<p class="tip">Tip: invoice numbers are free-form on purpose — some clients want sequential numbers, others use dates or project codes. Type whatever matches your books.</p>
+
+<h2 id="currency">Currencies &amp; tax rates</h2>
+<ul>
+<li>Supported currencies: USD, EUR, GBP, NGN, ZAR, INR, CAD and AUD.</li>
+<li>Set any <strong>tax rate percentage</strong> per invoice (e.g. 20% VAT, 7.5% GST, 0% for untaxed work).</li>
+<li>Prices are entered as unit prices; quantity × unit price = line total before tax.</li>
+</ul>
+
+<h2 id="print">Save the invoice as PDF</h2>
+<ol>
+<li>Click <strong>Preview &amp; Print</strong>.</li>
+<li>In the print dialog, choose <strong>Save as PDF</strong> as the destination.</li>
+<li>The saved file is a clean, printable invoice you can email or archive. Works offline.</li>
+</ol>
+
+<h2 id="trouble">Troubleshooting</h2>
+<ul>
+<li><strong>Totals don't add up</strong> — check you entered quantity and unit price (a quantity of <code>0</code> gives a 0 line total).</li>
+<li><strong>Tax missing</strong> — set the tax rate in step 3; 0% disables tax on the whole invoice.</li>
+<li><strong>Wrong currency symbol</strong> — change the currency dropdown before previewing; it applies to the whole invoice.</li>
+<li><strong>Invoice prints on two pages</strong> — clear long notes or reduce browser zoom before printing.</li>
+</ul>
+
+<p><a href="index.html">← Back to the generator</a></p>
+</div>
+<footer><p><a href="about.html">About</a> · <a href="help.html">Help</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="help.html">Help</a> · <a href="contact.html">Contact</a></p></footer>
+<script src="track.js" data-ga="G-NMDXLM3Z2J"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://invoice-generator.github.io/sitemap.xml
+Sitemap: https://invoice-pdf-generator.github.io/sitemap.xml
